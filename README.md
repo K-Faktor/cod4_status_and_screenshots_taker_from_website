@@ -23,4 +23,4 @@ Now for displaying images from any directory to the web browser
 3. enjoy.
 
 
-see the project live in www.algaming.tk
+see the project live in www.za30cod.ru
