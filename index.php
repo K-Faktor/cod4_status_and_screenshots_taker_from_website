@@ -149,7 +149,7 @@ foreach($xml->Game->Data as $Game_data){
 
 <div class="container-fluid ">    
   <div class="row content">
-    <div class="col-sm-2" style="margin-top:40px;">	
+    <div class="col-sm-2" style="margin-top:62px;">	
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="http://www.algaming.tk">Home</a></li>
         <li><a href="http://www.algaming.tk/screenshots/">Screenshots</a></li>
