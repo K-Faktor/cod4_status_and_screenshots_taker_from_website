@@ -164,26 +164,29 @@ for($j=$start_from;$j<=$stop_at;++$j){
 <br>
 
 <div class="container"><center>
-<?php
+<?php $total_pages = ceil(count($total_files) / $per_page);
+for($i=1;$i<=5;++$i){
+    if($i == 1){
+            echo '<ul class="pagination">';
+    }
+    if($page != 1 && $i == 1 ){
+            echo '<li><a href=?page=1><<</a></li><li><a href=?page='.($page-1).'><</a></li>';
+    }
+    if($page == ($page+$i-1)){
+            echo '<li class="active"><a href=?page='.($page+$i-1).'>'.($page+$i-1).'</a></li>';
+    }else{
 
-
-$total_pages = ceil(count($total_files) / $per_page);
-
-
-for($i=1;$i<=$total_pages;++$i){
-	if($i == 1){
-		echo '<ul class="pagination">';
-	}
-	if($page == $i){
-		echo '<li class="active"><a href=?page='.$i.'>'.$i.'</a></li>';
-	}else{
-		echo '<li><a href=?page='.$i.'>'.$i.'</a></li>';
-	}
-	if($i >= $total_pages){
-		echo "</ul>";
-	}
+            if(($page+$i-2) != $total_pages){
+                    echo '<li><a href=?page='.($page+$i-1).'>'.($page+$i-1).'</a></li>';
+            }else{
+                    echo '</ul>';
+                    break;
+            }
+    }
+    if($i >= 5){
+            echo '<li><a href=?page='.($page+1).'>></a></li><li><a href=?page='.$total_pages.'>>></a></li></ul>';
+    }
 }
-
 ?>
 
 </center></div>
