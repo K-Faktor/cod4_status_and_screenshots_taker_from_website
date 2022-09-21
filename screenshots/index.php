@@ -7,7 +7,7 @@
 #██║░░██║██║░░██║██║░░░░░██║░░░░░░░░██║░░░
 #╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░░░░░░╚═╝░░░
 
-$src_folder = 'C:\Users\WORK\Pictures\Screenshots'; # change to desired directory  ' /home/folder/images ' 
+$src_folder = '/home/cod4_1/.callofduty4/screenshots'; # change to desired directory  ' /home/folder/images ' 
 
 
 ###################################
@@ -15,11 +15,12 @@ $src_folder = 'C:\Users\WORK\Pictures\Screenshots'; # change to desired director
 ###################################
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <title>Anime Lover Gaming | Screenshots</title>
+  <title>Za30 CoD Gaming | Скриншоты</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/images/icons/cod4.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -37,7 +38,8 @@ $src_folder = 'C:\Users\WORK\Pictures\Screenshots'; # change to desired director
    
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
+      background-color: #555;
+      color: white;
       padding: 25px;
     }
   </style>
@@ -52,29 +54,24 @@ $src_folder = 'C:\Users\WORK\Pictures\Screenshots'; # change to desired director
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="http://www.algaming.tk">Anime Lover Gaming</a>
+      <a class="navbar-brand" href="http://45.155.207.181">Za30 CoD Gaming</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="http://www.algaming.tk">Home</a></li>
-        <li class="active"><a href="http://www.algaming.tk/screenshots">Screenshots</a></li>
-     	<li><a href="http://www.algaming.tk/statistics.php">Statistics</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
+        <li><a href="http://45.155.207.181">Главная</a></li>
+        <li class="active"><a href="http://45.155.207.181/screenshots">Скриншоты</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#contactModal">Контакт</a></li>
 	<!-- Modal -->
       <div class="modal fade alert alert-info" id="contactModal" role="dialog">
         <div class="modal-dialog modal-sm">
           <div class="modal-content ">
             <div class="modal-body">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-            <div> <center>For any queries Contact<br><h2>[AL]Happy#9833</h2><br>At Discord</div>
+            <div> <center>По вопросам обращайтесь<br><h2>https://t.me/za30cod</h2><br>В Телеграм</div>
           </div>
         </div>
       </div>
 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <!---<li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> -->
       </ul>
     </div>
   </div>
@@ -194,7 +191,7 @@ for($i=1;$i<=5;++$i){
 <br>
 
 <footer class="container-fluid text-center">
-  <p>Copyright 2020-2021 by <a href="http://algaming.tk">Algaming.tk</a>. All Rights Reserved.</p>  
+  <p>Авторское право 2021-2022 <a href="http://45.155.207.181">Za30CoD.RU</a> Все права защищены.</p>  
 </footer>
 
 </body>
