@@ -122,7 +122,7 @@ foreach($xml->Game->Data as $Game_data){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="http://45.155.207.181">Za30 CoD Gaming</a>
+      <a class="navbar-brand" href="http://za30cod.ru">Za30 CoD Gaming</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -155,7 +155,7 @@ foreach($xml->Game->Data as $Game_data){
         <li><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
       </ul>
     </div>
-    <div class="col-sm-7 text-center">
+    <div class="col-sm-7 text-left">
 	 <h2><?php echo $game_name;?></h2>
 	  <div class="panel panel-default">
 		<div class="panel-heading"><b>Игроки онлайн</b><span class="badge navbar-right" style="margin-right: 10px"> <?php echo $players_online.' / '. $max_players;?></span></div>
@@ -251,7 +251,7 @@ $(document).ready(function(){
 </script>
 
 <footer class="container-fluid text-center">
-<p>Авторское право 2021-2022 <a href="http://45.155.207.181">Za30CoD.RU</a> Все права защищены.</p>
+<p>Авторское право 2021-2022 <a href="http://za30cod.ru">Za30CoD.RU</a> Все права защищены.</p>
 </footer>
 
 </body>

@@ -54,12 +54,12 @@ $src_folder = '/home/cod4_1/.callofduty4/screenshots'; # change to desired direc
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="http://45.155.207.181">Za30 CoD Gaming</a>
+      <a class="navbar-brand" href="http://za30cod.ru">Za30 CoD Gaming</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="http://45.155.207.181">Главная</a></li>
-        <li class="active"><a href="http://45.155.207.181/screenshots">Скриншоты</a></li>
+        <li class="active"><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Контакт</a></li>
 	<!-- Modal -->
       <div class="modal fade alert alert-info" id="contactModal" role="dialog">
@@ -191,7 +191,7 @@ for($i=1;$i<=5;++$i){
 <br>
 
 <footer class="container-fluid text-center">
-  <p>Авторское право 2021-2022 <a href="http://45.155.207.181">Za30CoD.RU</a> Все права защищены.</p>  
+  <p>Авторское право 2021-2022 <a href="http://za30cod.ru">Za30CoD.RU</a> Все права защищены.</p>  
 </footer>
 
 </body>
