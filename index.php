@@ -199,7 +199,7 @@ foreach($xml as $xml_data){
 						echo '<td>'.$data.'</td>';
 					}
 					if($player_data == 'Ping' ){
-						echo '<td>  <form method="POST"><button type="submit" class="btn btn-primary btn-block" data-somestringvalue-text="Screenshot Requested" autocomplete="off" name="player_CID" value="'.$player_CID.'"><i class="fa fa-camera"></i> Сделать скриншот</button></form></td>';
+						echo '<td>  <form method="POST"><button type="submit" class="btn btn-primary btn-block" data-somestringvalue-text="Скриншот запрошен" autocomplete="off" name="player_CID" value="'.$player_CID.'"><i class="fa fa-camera"></i> Сделать скриншот</button></form></td>';
 					}
 				}
 			}
