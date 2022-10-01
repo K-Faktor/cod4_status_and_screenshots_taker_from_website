@@ -220,7 +220,7 @@ echo '</tbody></table></div>';
 				<div class="panel-body" style="background-color: #101820FF; color: #FEE715FF;">
 					<?php echo '<img src="images/maps/'.$map_name.'.jpg" class="img img-thumbnail" alt="'.$map_name.'"></img>'?>
 				</div>
-				<div class="panel-footer">
+				<div class="panel-footer"  style="background-color: #101820FF">
 					<ul class="list-group">
 					  <li class="list-group-item" style="color: black;">Состояние сервера: <b><?php echo $server_status;?></b></li>
 					  <li class="list-group-item" style="color: black;">Карта: <b><?php echo $map_name;?></b></li>
