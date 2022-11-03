@@ -11,9 +11,9 @@
 #█████████████████████████████████████████████████████████████████████████████████████████████████████████
 
 $xml = simplexml_load_file('/home/cod4_1/.callofduty4/serverstatus.xml'); // cod4 installation directory where 'serverstatus.xml' is present. 	
-$server_ip = '45.155.207.181:28970';
+$server_ip = '195.2.81.134:28960';
 $server_location = 'Russia';
-$server_name = '[Za30] MEGATRON SERVER';
+$server_name = 'Za30CoD.RU|NAZEMKA';
 
 #█████████████████████████████████████████████████████████████████████████████████████████████████████████
 # 			 			Dont change the below code , unless you know what your doing
@@ -74,7 +74,7 @@ foreach($xml->Game->Data as $Game_data){
   <title>Za30 CoD Gaming | Главная</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="/images/icons/cod4.png">
+  <link rel="shortcut icon" href="/status/images/icons/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -126,8 +126,8 @@ foreach($xml->Game->Data as $Game_data){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://45.155.207.181">Главная</a></li>
-        <li><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
+        <li class="active"><a href="http://za30cod.ru/status">Статус сервера</a></li>
+        <li><a href="http://za30cod.ru/screenshots/">Скриншоты</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Контакт</a></li>
 		<!-- Modal -->
   	<div class="modal fade alert alert-info" id="contactModal" role="dialog">
@@ -151,8 +151,8 @@ foreach($xml->Game->Data as $Game_data){
   <div class="row content">
     <div class="col-sm-2 text-center" style="margin-top:62px;">	
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="http://45.155.207.181">Главная</a></li>
-        <li><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
+        <li class="active"><a href="http://za30cod.ru/status">Статус сервера</a></li>
+        <li><a href="http://za30cod.ru/screenshots/">Скриншоты</a></li>
       </ul>
     </div>
     <div class="col-sm-7 text-left">
@@ -250,9 +250,9 @@ $(document).ready(function(){
 });
 </script>
 
-<footer class="container-fluid text-center">
+<!-- <footer class="container-fluid text-center">
 <p>Авторское право 2021-2022 <a href="http://za30cod.ru">Za30CoD.RU</a> Все права защищены.</p>
-</footer>
+</footer> -->
 
 </body>
 
