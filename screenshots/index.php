@@ -58,8 +58,8 @@ $src_folder = '/home/cod4_1/.callofduty4/screenshots'; # change to desired direc
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="http://za30cod.ru/status">Статус сервера</a></li>
-        <li class="active"><a href="http://za30cod.ru/screenshots/">Скриншоты</a></li>
+        <li><a href="http://45.155.207.181/status">Статус сервера</a></li>
+        <li class="active"><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Контакт</a></li>
 	<!-- Modal -->
       <div class="modal fade alert alert-info" id="contactModal" role="dialog">

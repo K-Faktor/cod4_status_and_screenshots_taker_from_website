@@ -11,9 +11,9 @@
 #█████████████████████████████████████████████████████████████████████████████████████████████████████████
 
 $xml = simplexml_load_file('/home/cod4_1/.callofduty4/serverstatus.xml'); // cod4 installation directory where 'serverstatus.xml' is present. 	
-$server_ip = '195.2.81.134:28960';
+$server_ip = '45.155.207.181:28970';
 $server_location = 'Russia';
-$server_name = 'Za30CoD.RU|NAZEMKA';
+$server_name = 'Za30CoD.RU|MEGATRON';
 
 #█████████████████████████████████████████████████████████████████████████████████████████████████████████
 # 			 			Dont change the below code , unless you know what your doing
@@ -126,8 +126,8 @@ foreach($xml->Game->Data as $Game_data){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://za30cod.ru/status">Статус сервера</a></li>
-        <li><a href="http://za30cod.ru/screenshots/">Скриншоты</a></li>
+        <li class="active"><a href="http://45.155.207.181/status">Статус сервера</a></li>
+        <li><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Контакт</a></li>
 		<!-- Modal -->
   	<div class="modal fade alert alert-info" id="contactModal" role="dialog">
@@ -151,14 +151,14 @@ foreach($xml->Game->Data as $Game_data){
   <div class="row content">
     <div class="col-sm-2 text-center" style="margin-top:62px;">	
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="http://za30cod.ru/status">Статус сервера</a></li>
-        <li><a href="http://za30cod.ru/screenshots/">Скриншоты</a></li>
+        <li class="active"><a href="http://45.155.207.181/status">Статус сервера</a></li>
+        <li><a href="http://45.155.207.181/screenshots/">Скриншоты</a></li>
       </ul>
     </div>
     <div class="col-sm-7 text-left">
 	 <h2><?php echo $game_name;?></h2>
 	  <div class="panel panel-default">
-		<div class="panel-heading"><b>Игроки онлайн</b><span class="badge navbar-right" style="margin-right: 10px"> <?php echo $players_online.' / '. $max_players;?></span></div>
+		<div class="panel-heading"><i class="fa fa-gamepad"></i><b> Игроки онлайн</b><span class="badge navbar-right" style="margin-right: 10px"><i class="fa fa-users fa-fw"></i> <?php echo $players_online.' / '. $max_players;?></span></div>
 		  <div class="panel-body" style="background-color: #101820FF; color: #FEE715FF;">
 			<div class="table-responsive">
 			<table class="table table-bordered">
@@ -216,7 +216,7 @@ echo '</tbody></table></div>';
     </div>
     <div class="col-sm-3" style="margin-top:62px;">
 		<div class="panel panel-default">
-			<div class="panel-heading"><b>Имя сервера: <?php echo $server_name;?> </b></div>
+			<div class="panel-heading"><i class="fa fa-bar-chart-o"></i><b> Имя сервера: <?php echo $server_name;?> </b></div>
 				<div class="panel-body" style="background-color: #101820FF; color: #FEE715FF;">
 					<?php echo '<img src="images/maps/'.$map_name.'.jpg" class="img img-thumbnail" alt="'.$map_name.'"></img>'?>
 				</div>
@@ -228,6 +228,7 @@ echo '</tbody></table></div>';
 					  <li class="list-group-item" style="color: black;">Сервер IP: <b><?php echo $server_ip; ?></b></li>
 					  <li class="list-group-item" style="color: black;">Игроки онлайн: <b><?php echo $players_online; ?></b></li>
 					  <li class="list-group-item" style="color: black;">Местоположение: <b><?php  echo $server_location; ?></b></li>
+					  <li class="list-group-item" style="color: black;">Подключиться: <a href="cod4://45.155.207.181:28970"><i class="fa fa-link"></i></a></li>
 					</ul>
 				</div>
 			</div>  
