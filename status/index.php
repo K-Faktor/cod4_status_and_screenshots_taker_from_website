@@ -4,6 +4,7 @@ $server_ip = '45.155.207.181:28970';
 $server_location = 'Russia';
 $server_name = '[Za30] MEGATRON WaR';
 
+// Include RCON configuration
 include 'rcon.ini.php';
 
 $indexno = 1;
@@ -16,18 +17,27 @@ foreach ($xml->Clients->attributes() as $player_data => $data) {
 
 foreach ($xml->Game->Data as $Game_data) {
     foreach ($Game_data->attributes() as $game => $data) {
-        if (($game == 'Name') && ($data == 'sv_maxclients')) {
-            $need_value = $Game_data;
-            $max_players = $need_value->attributes()->Value;
-        } elseif (($game == 'Name') && ($data == 'mapname')) {
-            $need_value = $Game_data;
-            $map_name = $need_value->attributes()->Value;
-        } elseif (($game == 'Name') && ($data == 'gamename')) {
-            $need_value = $Game_data;
-            $game_name = $need_value->attributes()->Value;
-        } elseif (($game == 'Name') && ($data == 'g_gametype')) {
-            $need_value = $Game_data;
-            $gametype_name = $need_value->attributes()->Value;
+        switch ($game) {
+            case 'Name':
+                switch ($data) {
+                    case 'sv_maxclients':
+                        $need_value = $Game_data;
+                        $max_players = $need_value->attributes()->Value;
+                        break;
+                    case 'mapname':
+                        $need_value = $Game_data;
+                        $map_name = $need_value->attributes()->Value;
+                        break;
+                    case 'gamename':
+                        $need_value = $Game_data;
+                        $game_name = $need_value->attributes()->Value;
+                        break;
+                    case 'g_gametype':
+                        $need_value = $Game_data;
+                        $gametype_name = $need_value->attributes()->Value;
+                        break;
+                }
+                break;
         }
     }
 }
@@ -42,6 +52,7 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <title>Za30 CoD GaMinG | Статус сервера</title>
     <meta charset="utf-8">
@@ -85,6 +96,7 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
         }
     </style>
 </head>
+
 <body style="background-color: #101820FF; color: #FEE715FF;">
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -133,66 +145,61 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
                             </thead>
                             <tbody>
                             <?php
-                            foreach ($xml as $xml_data) {
-                                if ($xml_data == $xml->Clients->Client) {
-                                    foreach ($xml_data as $player) {
-                                        echo '<tr>';
-                                        $once = true;
-                                        foreach ($player->attributes() as $player_data => $data) {
-                                            $only_need = array('CID', 'ColorName', 'Score', 'Kills', 'Deaths', 'Ping');
-                                            if (in_array($player_data, $only_need)) {
-                                                if ($player_data == "CID") {
-                                                    $player_CID = $data;
-                                                }
-
-                                                if ($once == true) {
-                                                    echo '<td>'.$indexno.'</td>';
-                                                    $once = false;
-                                                    $indexno++;
-                                                }
-                                                if ($player_data != "CID") {
-                                                    echo '<td>'.$data.'</td>';
-                                                }
-                                                if ($player_data == 'Ping') {
-                                                    echo '<td>  <form method="POST"><button type="submit" class="btn btn-primary btn-block" data-somestringvalue-text="Скриншот запрошен" autocomplete="off" name="player_CID" value="'.$player_CID.'"><i class="fa fa-camera"></i> Скриншот</button></form></td>';
-                                                }
-                                            }
+                            foreach ($xml->Clients->Client as $player) {
+                                echo '<tr>';
+                                $once = true;
+                                foreach ($player->attributes() as $player_data => $data) {
+                                    $only_need = array('CID', 'ColorName', 'Score', 'Kills', 'Deaths', 'Ping');
+                                    if (in_array($player_data, $only_need)) {
+                                        if ($player_data == "CID") {
+                                            $player_CID = $data;
                                         }
-                                        echo '</tr>';
+
+                                        if ($once == true) {
+                                            echo '<td>'.$indexno.'</td>';
+                                            $once = false;
+                                            $indexno++;
+                                        }
+                                        if ($player_data != "CID") {
+                                            echo '<td>'.$data.'</td>';
+                                        }
+                                        if ($player_data == 'Ping') {
+                                            echo '<td>  <form method="POST"><button type="submit" class="btn btn-primary btn-block" data-somestringvalue-text="Скриншот запрошен" autocomplete="off" name="player_CID" value="'.$player_CID.'"><i class="fa fa-camera"></i> Скриншот</button></form></td>';
+                                        }
                                     }
                                 }
+                                echo '</tr>';
                             }
-
-                            echo '</tbody></table></div>';
                             ?>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col-sm-3" style="margin-top:62px;">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-bar-chart-o"></i><b> Имя сервера: <?php echo $server_name;?> </b></div>
-                        				<div class="panel-body" style="background-color: #101820FF; color: #FEE715FF;">
-					<?php
-					$map_path = 'images/maps/' . $map_name . '.jpg';
+            </div>
+        </div>
+        <div class="col-sm-3" style="margin-top:62px;">
+            <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-bar-chart-o"></i><b> Имя сервера: <?php echo $server_name;?> </b></div>
+                <div class="panel-body text-center" style="background-color: #101820FF; color: #FEE715FF;">
+                    <?php
+                    $map_path = 'images/maps/' . $map_name . '.jpg';
 
-					if (file_exists($map_path)) {
-						echo '<img src="' . $map_path . '" class="img img-thumbnail" alt="' . $map_name . '">';
-					} else {
-						echo '<img src="images/maps/no-photo.jpg" class="img img-thumbnail" alt="No Photo">';
-					}
-					?>
-				</div>
-                        <div class="panel-footer"  style="background-color: #101820FF">
-                            <ul class="list-group">
-                                <li class="list-group-item" style="color: black;">Состояние сервера: <b><?php echo $server_status;?></b></li>
-                                <li class="list-group-item" style="color: black;">Карта: <b><?php echo $map_name;?></b></li>
-                                <li class="list-group-item" style="color: black;">Тип игры: <b><?php echo $gametype_name;?></b></li>
-                                <li class="list-group-item" style="color: black;">Сервер IP: <b><?php echo $server_ip; ?></b></li>
-                                <li class="list-group-item" style="color: black;">Местоположение: <b><?php  echo $server_location; ?></b></li>
-                                <li class="list-group-item" style="color: black;">Подключиться: <a href="cod4://45.155.207.181:28970"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    if (file_exists($map_path)) {
+                        echo '<img src="' . $map_path . '" class="img img-thumbnail" width="320" height="210" alt="' . $map_name . '">';
+                    } else {
+                        echo '<img src="images/maps/no-photo.jpg" class="img img-thumbnail" width="320" height="210" alt="No Photo">';
+                    }
+                    ?>
+                </div>
+                <div class="panel-footer" style="background-color: #101820FF">
+                    <ul class="list-group">
+                        <li class="list-group-item" style="color: black;">Состояние сервера: <b><?php echo $server_status;?></b></li>
+                        <li class="list-group-item" style="color: black;">Карта: <b><?php echo $map_name;?></b></li>
+                        <li class="list-group-item" style="color: black;">Тип игры: <b><?php echo $gametype_name;?></b></li>
+                        <li class="list-group-item" style="color: black;">Сервер IP: <b><?php echo $server_ip; ?></b></li>
+                        <li class="list-group-item" style="color: black;">Местоположение: <b><?php  echo $server_location; ?></b></li>
+                        <li class="list-group-item" style="color: black;">Подключиться: <a href="cod4://45.155.207.181:28970"><i class="fa fa-link"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -200,11 +207,11 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
 </div>
 
 <script>
-    $(document).ready(function(){
-        $("button").click(function(){
-            $(this).button('loading').delay(1000).queue(function(){
+    $(document).ready(function () {
+        $("button").click(function () {
+            $(this).button('loading').delay(1000).queue(function () {
                 $(this).button('somestringvalue');
-                $(this).dequeue().delay(2000).queue(function(){
+                $(this).dequeue().delay(2000).queue(function () {
                     $(this).button("reset");
                     $(this).dequeue();
                 });
@@ -215,12 +222,13 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
 
 <!-- Fixed Footer -->
 <footer class="navbar-fixed-bottom" style="background-color: #1E1E1E; color: white; padding: 10px;">
-  <div class="container text-center">
-    <p>Авторское право <a href="http://za30cod.ru">Za30CoD.RU</a> 2017-2023</p>
-  </div>
+    <div class="container text-center">
+        <p>Авторское право <a href="http://za30cod.ru">Za30CoD.RU</a> 2017-2023</p>
+    </div>
 </footer>
 
 </body>
 
 <?php include 'rcon.php'; ?>
+
 </html>
