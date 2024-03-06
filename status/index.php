@@ -80,10 +80,13 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
         }
 
         /* Set black background color, white text and some padding */
-        footer {
+        .navbar-fixed-bottom {
             background-color: #1E1E1E;
             color: white;
-            padding: 25px;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         /* On small screens, set height to 'auto' for sidenav and grid */
@@ -221,11 +224,27 @@ if (!$x = @fsockopen($server_ip, $server_port)) {
 </script><br><br>
 
 <!-- Fixed Footer -->
-<footer class="navbar-fixed-bottom" style="background-color: #1E1E1E; color: white; padding: 10px;">
-    <div class="container text-center">
-        <p>Авторское право <a href="http://za30cod.ru">Za30CoD.RU</a> 2017-2023</p>
+<footer class="navbar-fixed-bottom">
+    <div class="container text-center" id="currentDate">
+        <p>Авторское право 2017 - <span id="currentDateFormatted"></span></p>
     </div>
 </footer>
+
+<script>
+    function formatDate() {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const currentDate = new Date().toLocaleDateString('ru-RU', options);
+        return currentDate;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentDateElement = document.getElementById('currentDateFormatted');
+
+        if (currentDateElement) {
+            currentDateElement.innerHTML = formatDate();
+        }
+    });
+</script>
 
 </body>
 
