@@ -23,7 +23,7 @@ $src_folder = '/home/cod4_1/.callofduty4/screenshots';
             margin-bottom: 0;
         }
 
-        footer {
+        .navbar-fixed-bottom {
             background-color: #1E1E1E;
             color: white;
             padding: 10px;
@@ -161,11 +161,27 @@ $src_folder = '/home/cod4_1/.callofduty4/screenshots';
 </div><br><br>
 
 <!-- Fixed Footer -->
-<footer class="navbar-fixed-bottom" style="background-color: #1E1E1E; color: white; padding: 10px;">
-    <div class="container text-center">
-        <p>Авторское право <a href="http://za30cod.ru">Za30CoD.RU</a> 2017-2023</p>
+<footer class="navbar-fixed-bottom">
+    <div class="container text-center" id="currentDate">
+        <p>Авторское право 2017 - <span id="currentDateFormatted"></span></p>
     </div>
 </footer>
+
+<script>
+    function formatDate() {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const currentDate = new Date().toLocaleDateString('ru-RU', options);
+        return currentDate;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentDateElement = document.getElementById('currentDateFormatted');
+
+        if (currentDateElement) {
+            currentDateElement.innerHTML = formatDate();
+        }
+    });
+</script>
 
 </body>
 </html>
